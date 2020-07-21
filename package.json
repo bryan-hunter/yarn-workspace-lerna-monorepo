@@ -3,18 +3,11 @@
     "version": "1.0.0",
     "repository": "https://github.com/bryan-hunter/yarn-workspace-lerna-monorepo",
     "private": true,
-    "workspaces": {
-        "packages": [
-            "shared/scripts/*",
-            "shared/packages/*",
-            "apps/*",
-            "apps/*/scripts/*",
-            "apps/*/packages/*"
-        ]
-    },
+    "workspaces": [
+        "shared/**",
+        "apps/**"
+    ],
     "scripts": {
-        "depcheck": "lerna exec -- depcheck ./ --skip-missing=true --ignores='*/*eslint*,*babel*'",
-        "depcheck:changed": "lerna exec --since origin/master --include-dependents -- depcheck ./ --skip-missing=true  --ignores='*eslint*,*/*eslint*,*babel*'",
         "lint": "lerna exec -- eslint . --ext .js,.jsx,.ts,.tsx",
         "lint:changed": "lerna exec --since origin/master --include-dependents -- eslint . --ext .js,.jsx,.ts,.tsx",
         "test": "lerna run test",
@@ -23,9 +16,11 @@
         "typecheck:changed": "lerna exec --since origin/master --include-dependents -- tsc --noEmit"
     },
     "devDependencies": {
+        "@types/react": "^16.9.43",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-router-dom": "^5.1.5",
         "@typescript-eslint/eslint-plugin": "^3.6.1",
         "@typescript-eslint/parser": "^3.6.1",
-        "depcheck": "^1.0.0",
         "eslint": "^7.4.0",
         "eslint-config-airbnb-typescript": "^8.0.2",
         "eslint-config-prettier": "^6.11.0",
@@ -39,6 +34,10 @@
         "lerna": "^3.22.1",
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
-        "typescript": "^3.9.6"
+        "typescript": "^3.9.7"
+    },
+    "dependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
     }
 }
