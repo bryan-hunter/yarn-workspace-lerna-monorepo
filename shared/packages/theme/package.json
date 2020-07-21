@@ -1,0 +1,9 @@
+{
+    "name": "@shared/theme",
+    "version": "1.0.0",
+    "main": "src/index",
+    "peerDependencies": {
+        "react": "*"
+    },
+    "devDependencies": {}
+}

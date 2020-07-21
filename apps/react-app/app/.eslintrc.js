@@ -2,5 +2,5 @@ const config = require('../../../.eslintrc');
 
 module.exports = {
     ...config,
-    ignorePatterns: [...config.ignorePatterns, '*.js'],
+    ignorePatterns: ['config/**/*.js', 'scripts/**/*.js', 'node_modules'],
 };
