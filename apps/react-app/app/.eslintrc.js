@@ -2,5 +2,5 @@ const config = require('../../../.eslintrc');
 
 module.exports = {
     ...config,
-    ignorePatterns: ['serviceWorker.ts', 'config/**/*.js', 'scripts/**/*.js', 'node_modules'],
+    ignorePatterns: ['config/**/*.js', 'scripts/**/*.js', 'node_modules'],
 };
