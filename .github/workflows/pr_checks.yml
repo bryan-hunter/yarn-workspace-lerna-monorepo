@@ -1,0 +1,39 @@
+name: PR Status Checks
+
+on:
+    pull_request:
+        branches: [master]
+    release:
+        types: [published, created, edited]
+
+jobs:
+    status-checks:
+        name: Run - yarn ${{ matrix.command }}, node ${{ matrix.node-version }}
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                command: ['build:changed', 'lint:changed', 'test:changed', 'typecheck:changed']
+                node-version: [12.x]
+        env:
+            NODE_OPTIONS: --max_old_space_size=12288
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Fetch origin/master
+              run: git fetch --no-tags --prune --depth=1 origin master
+            - name: Use Node.js - ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Cache node_modules
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.OS }}-npm-${{ hashFiles('yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-npm-${{ env.cache-name }}
+                      ${{ runner.OS }}-npm-
+            - name: Install dependencies
+              run: yarn --frozen-lockfile
+            - name: Run command - ${{ matrix.command }}
+              run: yarn ${{ matrix.command }}
