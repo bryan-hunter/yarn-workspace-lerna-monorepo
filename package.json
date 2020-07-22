@@ -8,14 +8,21 @@
         "apps/**"
     ],
     "scripts": {
+        "build": "lerna run build",
+        "build:changed": "lerna run --since origin/master --include-dependents build",
         "lint": "lerna exec -- eslint . --ext .js,.jsx,.ts,.tsx",
         "lint:changed": "lerna exec --since origin/master --include-dependents -- eslint . --ext .js,.jsx,.ts,.tsx",
         "test": "lerna run test",
         "test:changed": "lerna run --since origin/master --include-dependents test",
+        "test:update": "lerna run test -- -u",
+        "test:update:changed": "lerna run --since origin/master --include-dependents test -- -u",
         "typecheck": "lerna exec -- tsc --noEmit",
         "typecheck:changed": "lerna exec --since origin/master --include-dependents -- tsc --noEmit"
     },
     "devDependencies": {
+        "@testing-library/react": "^10.4.7",
+        "@testing-library/react-hooks": "^3.3.0",
+        "@types/jest": "^26.0.5",
         "@types/react": "^16.9.43",
         "@types/react-dom": "^16.9.8",
         "@types/react-router-dom": "^5.1.5",
@@ -31,9 +38,12 @@
         "eslint-plugin-react": "^7.20.3",
         "eslint-plugin-react-hooks": "^4.0.8",
         "husky": "^4.2.5",
+        "jest": "^26.1.0",
         "lerna": "^3.22.1",
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
+        "react-test-renderer": "^16.13.1",
+        "ts-jest": "^26.1.3",
         "typescript": "^3.9.7"
     },
     "dependencies": {

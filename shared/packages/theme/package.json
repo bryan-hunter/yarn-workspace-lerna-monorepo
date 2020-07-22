@@ -2,8 +2,13 @@
     "name": "@shared/theme",
     "version": "1.0.0",
     "main": "src/index",
+    "scripts": {
+        "test": "jest"
+    },
     "peerDependencies": {
-        "react": "*"
+        "@testing-library/react-hooks": "*",
+        "react": "*",
+        "react-test-renderer": "*"
     },
     "devDependencies": {}
 }

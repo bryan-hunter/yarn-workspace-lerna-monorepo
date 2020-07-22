@@ -56,7 +56,6 @@ module.exports = {
     appIndexJs: resolveModule(resolveApp, 'src/index'),
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('src'),
-    testsSetup: resolveModule(resolveApp, 'test/setupTests'),
     appNodeModules: resolveApp('node_modules'),
     publicUrlOrPath,
     packagesSrc: resolveApp('../packages'),
