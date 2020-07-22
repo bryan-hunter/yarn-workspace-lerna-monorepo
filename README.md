@@ -31,7 +31,7 @@ It builds off of some painful experiences to hopefully provide some best practic
 -   long CI/CD PR status checks
 -   unfamiliar developers committing code that does not follow standards of repo
 -   shared dependency conflicts and resolution (ie: `"react": "15.1.0" in /app/package.json but "react": "16.1.0" in /shared/package.json`)
--   bugs and coupling caused by circular dependencies (ie: `packages/auth` dependes on `packages/profile` and `packages/profile` depends on `/packages/auth` - leads to runtime errors)
+-   bugs and coupling caused by circular dependencies (ie: `packages/package1` dependes on `packages/package2` and `packages/package2` depends on `/packages/package1` - leads to runtime errors)
 -   lack of quality / consistency due to non-strict settings / no tests / no status checks
 -   manual webpack / metro modifications normally required
 
