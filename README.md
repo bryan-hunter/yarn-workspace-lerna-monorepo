@@ -111,7 +111,7 @@ npx create-react-app apps/react-app/app --template typescript
 
 #### The hard part - modifying your webpack.config.js
 
--   remove `modues.js` file (we will not be using a non-standard `tsconfig.json` so we won't need this)
+-   remove `modules.js` file (we will not be using a non-standard `tsconfig.json` so we won't need this)
 -   update the paths in `paths.js`: These help map our files and workspaces that we need to resolve with `webpack`
 
 ```js
